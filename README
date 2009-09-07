@@ -8,3 +8,4 @@ rake site:init
 
 ./script/server
 
+login use admin/admin
