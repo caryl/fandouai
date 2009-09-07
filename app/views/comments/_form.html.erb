@@ -1,0 +1,22 @@
+<div id="comment_form" ><a name="comment_form"></a>
+  <%if Conf.open_comment? && commentable.open_comment?%>
+    <% remote_form_for [commentable, Comment.new], :before=>"$('comment_form_info').innerHTML='正在提交,请稍等...'" do |form| %>
+      <%= form.error_messages %>
+      <dl>
+        <dt><%= form.label :visitor_name, '名字:' %></dt>
+        <%if logged_in?%>
+          <dd><%= current_user.name %></dd>
+        <%else%>
+          <dd><%= form.text_field :visitor_name %></dd>
+        <%end%>
+        <dt><%= form.label :content, '内容(至少5个字):' %></dt>
+        <dd><%= form.text_area :content, :rows=>10%></dd>
+        <% if Conf.captcha_on_comment %>
+        <dt>验证码(请输入图片中的数字):</dt>
+        <dd><%= show_simple_captcha :code_type => 'numeric', :label => '', :image_style => 'random', :object => 'comment' %>  </dd>
+        <% end %>
+      </dl>
+      <p><%= form.submit '发表' %><span id="comment_form_info"></span></p>
+    <%end%>
+  <% end %>
+</div>

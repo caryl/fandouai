@@ -1,0 +1,23 @@
+<h1>登录</h1>
+<% form_tag '/login' do %>
+  <dl>
+    <dt>用户名:</dt>
+    <dd><%= text_field_tag 'user_name' %></dd>
+    <dt>密码:</dt>
+    <dd><%= password_field_tag 'password' %></dd>
+    <% if Conf.captcha_on_login %>
+    <dt>验证码:</dt>
+    <dd><%= show_simple_captcha :code_type => 'numeric', :label => '(请输入图片中的数字)', :image_style => 'random' %>  </dd>
+    <% end %>
+    <dt>记住我:<%= check_box_tag 'remember_token' %></dt>
+    <dd></dd>
+  </dl>
+  <p><%= submit_tag '登录' %> <%=link_to "忘记密码？", '/findback_password'%></p>
+<% end %>
+
+<%content_for :side do%>
+  <%['widgets/article_orders', 'widgets/article_categories',
+    'widgets/article_tags', 'widgets/article_authors', 'widgets/article_newest'].each do |widget| %>
+    <%=render :partial => widget %>
+  <%end%>
+<%end%>

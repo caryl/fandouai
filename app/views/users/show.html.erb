@@ -1,0 +1,32 @@
+<h1><%=link_to @user.name, user_link(@user)%></h1>
+<%=auto_link_to image_tag(@user.avatar.url(:large)), user_link(@user)%>
+<div id='user_info'>
+  <h2>用户信息</h2>
+  <ul>
+    <li>类型：<%= Author===@user ? '作者' : '用户'%></li>
+    <li>积分：<%=@user.score||0%></li>
+    <li>等级：<%=@user.rank ||0%></li>
+    <% if Author===@user %>
+    <li><%=link_to '查看该用户所有文章', author_articles_path(@user)%></li>
+    <% end %>
+  </ul>
+</div>
+
+<div id='user_articles'>
+  <h2>最新文章</h2>
+  <ul>
+    <%@user.articles.visible.all(:limit=>10).each do |article|%>
+    <li><%=link_to h(article.title), article%>(<%=l article.created_at%>)</li>
+    <%end%>
+    <% if Author===@user %>
+    <li><%=link_to '查看该用户所有文章', author_articles_path(@user)%></li>
+    <% end %>
+  </ul>
+</div>
+
+<%content_for :side do%>
+  <%['widgets/article_rss', 'widgets/article_orders', 'widgets/article_categories',
+    'widgets/article_tags', 'widgets/article_authors'].each do |widget| %>
+    <%=render :partial => widget %>
+  <%end%>
+<%end%>

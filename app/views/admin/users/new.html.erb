@@ -1,0 +1,20 @@
+<h1>New User</h1>
+
+<% form_for([:admin, @user]) do |form| %>
+  <%= form.error_messages %>
+
+  <dl>
+    <dt><%= form.label :user_name, '用户名' %></dt>
+    <dd><%= form.text_field :user_name %></dd>
+    <dt><%= form.label :new_password, '密码' %></dt>
+    <dd><%= form.password_field :new_password %></dd>
+    <dt><%= form.label :new_password, '确认密码' %></dt>
+    <dd><%= form.password_field :new_password_confirmation %></dd>
+    <dt><%= form.label :email, '邮箱' %></dt>
+    <dd><%= form.text_field :email %></dd>
+  </dl>
+
+  <p><%= form.submit 'Create' %></p>
+<% end %>
+
+<p><%= link_to 'Back', admin_users_path %></p>

@@ -1,0 +1,24 @@
+<h1>分类列表</h1>
+
+<table>
+  <tr>
+    <th>标题</th>
+    <th>内容数量</th>
+    <th>地址</th>
+    <th>上级</th>
+
+  </tr>
+  <% for category in @categories %>
+  <tr>
+    <td><%='---'*category.level%><%= h category.title %></td>
+    <td><%= category.contents_count %></td>
+    <td><%= h category.param %></td>
+    <td><%= h category.parent.try(:title) %></td>
+    <td><%= link_to '增加下级', new_admin_category_path(:parent_id => category.id) %></td>
+    <td><%= link_to 'Edit', edit_admin_category_path(category) %></td>
+    <td><%= link_to 'Destroy', [:admin, category], :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+  <% end %>
+</table>
+
+<p><%= link_to '新建顶级分类', new_admin_category_path %></p>

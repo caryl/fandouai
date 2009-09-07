@@ -1,0 +1,6 @@
+<h1>修改站点CSS</h1>
+
+<%form_tag update_css_admin_system_path do%>
+  <%=text_area_tag :css, @css, :style=>"height:500px;width:800px;"%>
+  <%=submit_tag '修改' %>
+<%end%>

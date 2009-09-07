@@ -1,0 +1,13 @@
+#page.remove "vote_for_#{@comment.id}", "vote_against_#{@comment.id}"
+unless @info
+  if @type == 'for'
+    page.replace_html "vote_for_count_#{@comment.id}", @comment.vote_for.to_s
+    page.visual_effect :highlight, "vote_for_count_#{@comment.id}", :duration => 3
+  else
+    page.replace_html "vote_against_count_#{@comment.id}", @comment.vote_against.to_s
+    page.visual_effect :highlight, "vote_against_count_#{@comment.id}", :duration => 3
+  end
+  @info = '投票成功.'
+end
+page.replace_html "vote_info_#{@comment.id}", @info
+page.visual_effect :highlight, "vote_info_#{@comment.id}", :duration => 3

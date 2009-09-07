@@ -1,0 +1,35 @@
+<%@page_title = @content.title%>
+<div id="article_<%=@content.id%> article">
+  <div class="title"><h1><%=h @content.title%></h1></div>
+  <div class="info">
+    顶:<span id='prime_count_<%=@content.id%>' class="prime_count"><%=@content.prime||0%></span>
+    <span id="vote_<%=@content.id%>" class="vote_link">
+      <%=link_to_remote '我顶', :url => vote_article_path(@content), :before => "$('vote_#{@content.id}').hide()" \
+        if logged_in? && !@content.voted_by?(current_user)%>
+    </span>
+    作者: <%=auto_link_to h(@content.author.try(:nick_name)), user_link(@content.author)%>
+    时间: <%=l @content.created_at%>
+    分类: <%=link_to h(@content.category.try(:title)), category_articles_path(@content.category) %>
+    标签: <%@content.tags.each do |tag|%><%=link_to h(tag.name), tag_articles_path(tag)%> <%end%>
+    评论: <%=link_to @content.comments_count||0, :anchor => 'comments' %>条
+    点击: <%=@content.hits||0 %>
+    来源: <%=@content.source_link ? link_to(h(@content.source), @content.source_link, :target=>'_blank') : @content.source%>
+  </div>
+  <div id="content">
+    <%=sanitize @content.content %>
+  </div>
+</div>
+
+<div id="article_around">
+  <span id="newer_article"> 前一篇: <%=link_to @newer_article.title, @newer_article if @newer_article%> </span>
+  <span id="older_article"> 后一篇: <%=link_to @older_article.title, @older_article if @older_article%> </span>
+</div>
+
+<%= render :partial => '/comments/comments', :locals => {:commentable => @content}%>
+<%= render :partial => '/comments/form', :locals => {:commentable => @content} %>
+
+<%content_for :side do%>
+  <%['widgets/article_share', 'widgets/article_categories', 'widgets/article_newest', 'widgets/article_related', 'widgets/article_comments'].each do |widget| %>
+    <%=render :partial => widget %>
+  <%end%>
+<%end%>

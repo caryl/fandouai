@@ -1,0 +1,7 @@
+<div class="nav">
+  <span id="home_link" class="nav_link"><%= link_to '首页', '/' %></span>
+  <%Category.named_as('article', :limit=>5).each do |category|%>
+    <span id="category_link_<%=category.id%>" class="nav_link"><%=link_to category.title, category_articles_path(category)%></span>
+  <%end%>
+  <%= current_user_link %>
+</div>

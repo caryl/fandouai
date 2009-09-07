@@ -1,0 +1,25 @@
+<div class="comment" id ="comment_<%=comment.id%>">
+  <div class="comment_info">
+    <span id="comment_user_<%=comment.id%>">
+      <%=comment.user ? auto_link_to(comment.user_name, user_link(comment.user)) : comment.user_name%>
+    </span>
+    @ <%=l comment.created_at%>
+    <span class="comment_refer">
+      <%=link_to_function '引用', "refer(#{comment.id})"%>
+    </span>
+    <span class="comment_vote">
+      <span id="vote_info_<%=comment.id%>"></span>
+      <span id="vote_for_<%=comment.id%>" class="vote_for_link">
+        <%=link_to_function '支持', "vote_for(#{comment.id},'for')"%>
+      </span>
+      <span id='vote_for_count_<%=comment.id%>' class="vote_for_count"><%=comment.vote_for||0%></span> |
+      <span id='vote_against_count_<%=comment.id%>' class="vote_against_count"><%=comment.vote_against||0%></span>
+      <span id="vote_against_<%=comment.id%>" class="vote_against_link">
+        <%=link_to_function '反对', "vote_for(#{comment.id},'against')"%>
+      </span>
+    </span>
+  </div>
+  <div id="comment_content_<%=comment.id%>" class="comment_content">
+    <%=simple_format h(comment.content)%>
+  </div>
+</div>

@@ -1,0 +1,23 @@
+<%= form.error_messages %>
+
+<dl>
+  <dt><%= form.label :category_id, '分类' %></dt>
+  <dd><%= form.select :category_id, nested_set_options(Category.named_as('article')) {|i| "#{'-' * i.level} #{i.title}"}%></dd>
+  <dt><%= form.label :title, '标题' %></dt>
+  <dd><%= form.text_field :title %></dd>
+  <dt><%= form.label :param, '显示的路径(不填为随机字符串)' %></dt>
+  <dd><%= form.text_field :param %></dd>
+  <dt><%= form.label :short_content, '摘要' %></dt>
+  <dd><%= form.text_area :short_content %></dd>
+  <dt><%= form.label :content, '内容' %></dt>
+  <dd><%= fckeditor_textarea("article", "content", :toolbarSet => 'Easy', :width => '100%', :height => '400px') %></dd>
+  <dt><%= form.label :tag_list, '标签(以空格分开)' %></dt>
+  <dd><%= form.text_field :tag_list %></dd>
+  <dt><%= form.label :source, '来源' %></dt>
+  <dd><%= form.text_field :source %></dd>
+  <dt><%= form.label :source_link, '来源链接' %></dt>
+  <dd><%= form.text_field :source_link %></dd>
+  <dt><%= form.label :state_id, '状态' %></dt>
+  <dd><%= form.select :state_id, Content.options_for_state %></dd>
+</dl>
+

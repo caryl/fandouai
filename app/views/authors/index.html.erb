@@ -1,0 +1,21 @@
+<h1>作者团队</h1>
+<div>
+  <ul>
+    <%@authors.each do |author|%>
+      <li>
+        <%=auto_link_to image_tag(author.avatar.url(:middle)), user_path(author)%>
+        <%=auto_link_to h(author.nick_name), user_link(author)%>
+        [ <%=link_to "#{author.contents_count}篇文章", author_articles_path(author)%>  ]
+        [ <%= link_to "rss", formatted_author_articles_url(author, :rss) %> ]
+      </li>
+    <%end%>
+  </ul>
+</div>
+<%=will_paginate @authors%>
+
+<%content_for :side do%>
+  <%['widgets/article_rss', 'widgets/article_orders', 'widgets/article_categories',
+    'widgets/article_tags', 'widgets/article_newest'].each do |widget| %>
+    <%=render :partial => widget %>
+  <%end%>
+<%end%>

@@ -1,0 +1,6 @@
+<h1>修改投稿</h1>
+
+<% form_for(@article, :url => contribute_path(@article)) do |form| %>
+  <%= render :partial=>'form', :locals => {:form => form}  %>
+  <p><%= form.submit '更新' %></p>
+<% end %>

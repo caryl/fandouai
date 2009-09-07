@@ -1,0 +1,15 @@
+Factory.define :user do |user|
+  user.user_name 'MyString'
+  user.password 'MyString'
+  user.email 'MyString'
+  user.validation_code 'MyString'
+  user.nick_name 'MyString'
+  user.site_url 'MyString'
+  user.avatar_image 'MyString'
+  user.score '1'
+  user.rank '1'
+  user.topics_count '1'
+  user.last_login_at '2009-07-18 23:05:19'
+  user.last_login_ip 'MyString'
+  user.created_ip 'MyString'
+end

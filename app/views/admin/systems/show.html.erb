@@ -1,0 +1,17 @@
+<h1>系统管理</h1>
+<dl>
+<dt>重启服务(passenger)</dt>
+<dd><%=link_to '现在重启', restart_admin_system_path, :method=>:post%></dd>
+<dt>重新生成站点地图</dt>
+<dd><%=link_to '重新生成站点地图', sitemap_admin_system_path%></dd>
+<dt>修改站点CSS</dt>
+<dd><%=link_to '修改站点CSS', css_admin_system_path%></dd>
+<dt>修改站点设置</dt>
+<dd><%=link_to '站点设置', config_admin_system_path%></dd>
+<dt>执行rake</dt>
+<dd><%=link_to '执行', rake_admin_system_path, :method=>:post%></dd>
+<dt>查看系统异常</dt>
+<dd><%=link_to '查看', '/logged_exceptions', :target=>'_blank'%></dd>
+<dt>管理备份文件</dt>
+<dd><%=link_to '管理备份文件', bakup_admin_system_path%></dd>
+</dl>

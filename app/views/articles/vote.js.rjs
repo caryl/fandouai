@@ -1,0 +1,3 @@
+page.remove "vote_#{@article.id}"
+page.replace_html "prime_count_#{@article.id}", @article.prime.to_s
+page.visual_effect :highlight, "prime_count_#{@article.id}", :duration => 3

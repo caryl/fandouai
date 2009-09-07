@@ -1,0 +1,10 @@
+<div id="article_comments" class="widget">
+  <div class="title"> <%=  '热门评论' %> </div>
+  <ul>
+    <%@content.comments.all(:order=>'vote_for desc', :limit=>10).each do |comment|%>
+      <li>
+        <%=truncate(h(comment.content), :length=>200)%> by <%=h comment.user_name%>
+      </li>
+    <%end%>
+  </ul>
+</div>

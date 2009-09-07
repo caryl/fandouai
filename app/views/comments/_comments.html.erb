@@ -1,0 +1,18 @@
+<script type="text/javascript">
+  function vote_for(cid, type){
+    $('vote_info_'+cid).innerHTML=' 正在提交,请稍等...'; 
+    new Ajax.Request('/comments/'+cid+ '/vote',
+    {asynchronous:true, evalScripts:true, parameters:'type='+type+'&authenticity_token=' + encodeURIComponent('<%=form_authenticity_token%>')})
+  }
+  function refer(cid){
+    $('comment_content').value = $('comment_content').value
+      + '@' + $('comment_user_'+cid).innerHTML.stripTags().strip()
+      + ':'
+      +  $('comment_content_'+cid).innerHTML.stripTags().strip()
+      + '//\n';
+  }
+</script>
+<%comments = commentable.comments.visible.all(:include=>:user)%>
+<div id="comments"><a name="comments"></a>
+  <%= render comments %>
+</div>

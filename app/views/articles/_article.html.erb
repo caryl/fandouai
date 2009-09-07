@@ -1,0 +1,27 @@
+<div class="article" id="article_<%=article.id%>">
+  <div class="title">
+    <h2>
+      <%=link_to "[#{h(article.category.try(:title))}]", category_articles_path(article.category) %>
+      <%=link_to h(article.title), article%>
+    </h2>
+  </div>
+  <div class="info">
+    浏览:<%=article.hits%>
+    顶:<span id='prime_count_<%=article.id%>' class="prime_count"><%=article.prime||0%></span>
+    评论: <%=link_to article.comments_count||0, article_path(article, :anchor => 'comments')%>
+  </div>
+  <div class="box">
+    <div class="short_content">
+      <%=simple_format h(article.short_content) %>
+    </div>
+    <div class="short_other" >
+      <span style="width:auto; float:left;">
+        作者: <%=auto_link_to h(article.author.try(:nick_name)), user_link(article.author)%>
+        时间: <%=l article.created_at%>
+      </span>
+      <span style="width:auto; float:right">
+        标签: <%article.tags.each do |tag|%><%=link_to h(tag.name), tag_articles_path(tag)%> <%end%>
+      </span>
+    </div>
+  </div>
+</div>

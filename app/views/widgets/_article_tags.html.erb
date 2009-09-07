@@ -1,0 +1,6 @@
+<div id ="article_tags" class="widget">
+  <div class="title"> <%=link_to '标签云', tags_path %> </div>
+  <%tag_cloud(Article.tag_counts(:limit=>30, :at_least=>1, :order=>'contents.id desc'), (1 .. 5).to_a) do |tag, css|%>
+    <span class="tag tag_<%=css%>"><%=link_to h(tag), tag_articles_path(tag)%></span>
+  <%end%>
+</div>

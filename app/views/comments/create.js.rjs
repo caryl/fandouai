@@ -1,0 +1,4 @@
+page.insert_html :bottom, 'comments', :partial => 'comments/comment'
+page.visual_effect :pulsate, "comment_#{@comment.id}", :duration => 1
+page.replace_html 'comment_form', :partial => 'comments/form', :locals => {:commentable => @commentable}
+page.replace_html 'comment_form_info', ''

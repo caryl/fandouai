@@ -1,0 +1,7 @@
+<%if @content %>
+  <meta name="keywords" content="<%=h @content.category.try(:title)%>,<%=h @content.tags.join(',')%>"/>
+  <meta name="desctription" content="<%=h @content.short_content%>"/>
+<%else%>
+  <meta name="keywords" content="<%=h (Category.all.map(&:title)|Article.tag_counts(:limit=>10, :at_least=>2, :order=>'contents.id desc').map(&:name)).join(',')%>"/>
+  <meta name="desctription" content="<%=h Conf.site_description%>"/>
+<%end %>

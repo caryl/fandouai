@@ -1,0 +1,10 @@
+<%if @prime_articles.present?%>
+  <div id="article_prime" class="widget">
+    <span class="title">推荐文章</span>
+    <ul>
+      <%@prime_articles.each do |article|%>
+        <li><%=link_to h(article.title), article_path(article), :title => h(article.title)%></li>
+      <%end%>
+    </ul>
+  </div>
+<%end%>

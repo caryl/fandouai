@@ -1,0 +1,7 @@
+<div id ="article_search"  class="widget">
+  <div class="title">搜索</div>
+  <%form_tag articles_path, :method=>'get' do%>
+    <%=text_field_tag :q%>
+    <%=submit_tag '提交', :name=>nil%>
+  <%end%>
+</div>

@@ -1,0 +1,9 @@
+<%@newest_articles ||= Article.visible.all(:limit=>10)%>
+<div id="article_newest" class="widget">
+  <span class="title">最新文章</span>
+  <ul>
+    <%@newest_articles.each do |article|%>
+      <li><%=link_to h(article.title), article_path(article), :title => h(article.title)%></li>
+    <%end%>
+  </ul>
+</div>

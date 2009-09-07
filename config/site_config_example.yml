@@ -1,0 +1,30 @@
+development: &non_production_settings
+  site_name: 饭都爱-开发版
+  site_domain: fandouai.lh
+  site_description: 饭都爱(www.fandouai.com),为IT族娱乐资讯站,2009年7月22日成立(日全食那天).他关注IT族的工作.前沿资讯,娱乐生活,相关社会现象,其他有意思的事...
+  admin_users: admin,caryl,badwolf
+  open_comment?: true
+  max_comments: 100
+  site_stat: ""
+  bak_path: ../bak/
+  admin_confirm: AdminCanDo
+  captcha_on_login: false
+  captcha_on_comment: false
+  version: 0.8b
+
+test:
+  <<: *non_production_settings
+
+production:
+  site_name: 饭都爱[IT族的娱乐资讯站]
+  site_domain: fandouai.com
+  site_description: 饭都爱(www.fandouai.com),为IT族娱乐资讯站,2009年7月22日成立(日全食那天).他关注IT族的工作.前沿资讯,娱乐生活,相关社会现象,其他有意思的事...
+  admin_users: "admin,caryl,badwolf"
+  open_comment?: true
+  max_comments: 300
+  site_stat: 站点统计
+  bak_path: ../bak/
+  admin_confirm: AdminCanDo
+  captcha_on_login: true
+  captcha_on_comment: true
+  version: 0.8b

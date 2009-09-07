@@ -1,0 +1,4 @@
+<div id ="article_share"  class="widget">
+  <div class="title">分享</div>
+  <%= link_to "Google Reader", "http://www.google.com/reader/link?url=#{request.url}&amp;snippet=#{truncate(@content.short_content, :length=>200)}&amp;title=#{@content.title}&amp;srcUrl=#{request.host}&amp;srcTitle=#{Conf.site_name}" %>
+</div>

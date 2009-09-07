@@ -1,0 +1,21 @@
+<h1> 我的文章 </h1>
+
+<table>
+  <% for article in @articles %>
+    <tr>
+      <td><%= h article.category.try(:name) %></td>
+      <td><%=link_to h(article.title), article %></td>
+      <td><%= h article.state %></td>
+      <td><%= l article.created_at %></td>
+      <td><%= link_to '查看', article, :target=>'_blank' if article.visible?%>
+      <%= link_to '修改', edit_contribute_path(article) if article.state_is?(:draft)%></td>
+    </tr>
+  <% end %>
+</table>
+<%=will_paginate @articles%>
+
+<%content_for :side do%>
+  <%['widgets/user_menus', 'widgets/article_categories'].each do |widget| %>
+    <%=render :partial => widget %>
+  <%end%>
+<%end%>

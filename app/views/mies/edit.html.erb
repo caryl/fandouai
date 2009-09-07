@@ -1,0 +1,32 @@
+<h1>修改个人信息</h1>
+
+<% form_for :user, @user, :url=>{:action=>:update},:html => { :multipart => true, :method=>'put'} do |form| %>
+  <%= form.error_messages %>
+
+<dl>
+  <dt><%= form.label :avatar, '头像' %></dt>  
+  <dd>
+    <%= form.file_field :avatar %>
+    当前:<%=image_tag @user.avatar.url(:middle)%>
+  </dd>
+  <dt>'用户名'</dt>
+  <dd><%= @user.user_name%></dd>
+  <dt><%= form.label :nick_name, '昵称' %></dt>
+  <dd><%= form.text_field :nick_name %></dd>
+  <dt><%= form.label :new_password, '密码' %></dt>
+  <dd><%= form.password_field :new_password %></dd>
+  <dt><%= form.label :new_password, '确认密码' %></dt>
+  <dd><%= form.password_field :new_password_confirmation %></dd>
+  <dt><%= form.label :email, '邮箱' %></dt>
+  <dd><%= form.text_field :email %></dd>
+  <dt><%= form.label :email, '个人链接' %></dt>
+  <dd><%= form.text_field :site_url %></dd>
+</dl>
+  <p><%= form.submit 'Update' %></p>
+<% end %>
+
+<%content_for :side do%>
+  <%['widgets/user_menus'].each do |widget| %>
+    <%=render :partial => widget %>
+  <%end%>
+<%end%>

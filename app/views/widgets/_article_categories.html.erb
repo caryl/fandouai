@@ -1,0 +1,15 @@
+<div id ="article_categories"  class="widget">
+  <div class="title">分类</div>
+  <ul>
+    <li>
+      <%= link_to '全部文章', articles_path %>
+      <%=link_to "[rss]", articles_url(:rss), :class=>'rss'%>
+    </li>
+    <%Category.named_as('article').each do |category|%>
+      <li>
+        <%=link_to "#{h category.title}(#{category.contents_count||0})", category_articles_path(category)%>
+        <%=link_to "[rss]", category_articles_url(category, :rss), :class=>'rss'%>
+      </li>
+    <%end%>
+  </ul>
+</div>

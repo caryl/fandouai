@@ -1,0 +1,144 @@
+*{margin:0px;padding:0px;}
+blockquote {margin:1.5em;color:#666;font-style:italic;}
+dl {margin:0 0 1.5em 0;}
+dl dt {font-weight:bold;}
+dd {margin-left:1.5em;}
+.highlight {background:#FFFFDD;}
+.error, .notice, .success {padding:2px;margin-bottom:1em;border:2px solid #ddd;}
+.error {background:#FBE3E4;color:#8a1f11;border-color:#FBC2C4;}
+.notice {background:#FFF6BF;color:#514721;border-color:#FFD324;float:left;clear:both;color:#514721;float:left;padding:0 10px;width:900px;}
+.success {background:#E6EFC2;color:#264409;border-color:#C6D880;}
+.error a {color:#8a1f11;}
+.notice a {color:#514721;}
+.success a {color:#264409;}
+input.text, input.title, textarea, select {margin:0.5em 0;border:1px solid #bbb;}
+input.text:focus, input.title:focus, textarea:focus, select:focus {border:1px solid #666;}
+input.text, input.title {width:300px;padding:5px;}
+input.title {font-size:1.5em;}
+label {font-weight:bold;}
+fieldset {padding:1.4em;margin:0 0 1.5em 0;border:1px solid #ccc;}
+textarea {width:600px}
+
+img{border:0px;overflow:hidden;max-width:100%;}
+body {
+	background-color: #7E8A96;
+	line-height:20px;
+	font-size:12px;
+	color:#666;
+	font-family:Arial, Helvetica, sans-serif;
+}
+li {list-style-type:none;}
+a{color:#CC6600; text-decoration:none; }
+a:hover{color:#000000;}
+.all {
+	width: 950px;
+	margin-right: auto;
+	margin-left: auto;
+	background-color:#FFFFFF;
+	margin-top:10px;
+}
+.all_y {
+	float:left;
+	clear:both;
+	width: 950px;
+	background-color:#FFFFFF;
+}
+.top {
+	background-color:#666666;
+	border:5px solid #EFEFED;
+	clear:both;
+	float:left;
+	height:40px;
+	margin:10px;
+	width:920px;
+	display:inline;
+}
+.logo {float:left;width:170px;height:40px;}
+.nav {
+	float:left;
+	height:40px;
+	line-height:40px;
+	padding-right:20px;
+	text-align:right;
+	width:730px;
+}
+.nav a{color:#FFFFFF;}
+.nav a:hover{color:#99CC00;}
+.main {
+	clear:both;
+	float:left;
+	padding:0px 10px 10px;
+	width:930px;
+}
+.left{float:left; width:670px;padding:0px 5px;}
+.left table{width:100%}
+.left h1{float:left;padding:10px 0px 0px;height:30px;line-height:30px;font-size:18px;width:100%;}
+.right{float:right; width:230px; margin-right:10px;_margin-right:8px; display:inline;}
+.foot {
+	clear:both;
+	float:left;
+	height:40px;
+	padding:10px;
+	width:930px;
+	line-height:20px;
+	text-align:center;
+	background-image:url(/images/foot_line.jpg);
+	background-repeat: no-repeat;
+	background-position: center top;
+}
+
+
+.stickies_list {float:left; clear:both; width:660px;padding:5px;border:1px dotted #cccccc}
+.current_user_link {margin-left:10px;}
+.stickies_list ul li {
+	float:left;
+	padding-left:20px;
+	background-image: url(/images/li_icon.jpg);
+	background-repeat: no-repeat;
+	background-position: 5px 5px;
+}
+#article_authors ul{float:left;clear:both;padding:5px 0px;}
+
+#friend_links {float:left;clear:both;padding:5px 0px;}
+#article_categories ul{float:left;clear:both;padding:5px 0px;}
+#article_orders ul {float:left;clear:both;padding:5px 0px;}
+#article_rss a{float:left;clear:both;padding:5px 0px;}
+#article_search from{float:left;clear:both;padding:5px 0px;}
+
+#friend_links ul li {float:left;padding-left:20px;background-image: url(/images/li_icon.jpg);background-repeat: no-repeat;background-position: 5px 5px;width:100px;}
+#article_categories ul li{float:left;padding-left:20px;background-image: url(/images/li_icon.jpg);background-repeat: no-repeat;background-position: 5px 5px;width:200px;}
+#article_orders ul li{float:left;padding-left:20px;background-image: url(/images/li_icon.jpg);background-repeat: no-repeat;background-position: 5px 5px;width:100px;}
+#article_rss a {float:left;padding-left:20px;background-image: url(/images/li_icon.jpg);background-repeat: no-repeat;background-position: 5px 10px;width:100px;}
+#article_search ul li{float:left;padding-left:20px;background-image: url(/images/li_icon.jpg);background-repeat: no-repeat;background-position: 5px 5px;width:100px;}
+#article_prime ul li{float:left;padding-left:20px;background-image: url(/images/li_icon.jpg);background-repeat: no-repeat;background-position: 5px 5px;width:90%;}
+#article_newest ul li{float:left;padding-left:20px;background-image: url(/images/li_icon.jpg);background-repeat: no-repeat;background-position: 5px 5px;width:90%;}
+#article_related ul li{float:left;padding-left:20px;background-image: url(/images/li_icon.jpg);background-repeat: no-repeat;background-position: 5px 5px;width:90%;}
+#article_authors ul li{float:left;width:200px;padding-left:10px;}
+.articles_list {float:left; clear:both; width:670px;}
+.articles_list .article {float:left; clear:both; width:670px;margin-top:10px;display:inline;}
+.articles_list .article .title {
+background-image:url(/images/li_icon.jpg);
+background-position:5px 6px;
+background-repeat:no-repeat;
+float:left;
+font-size:14px;
+height:25px;
+overflow:hidden;
+padding-left:18px;
+width:472px;
+}
+.articles_list .article .title h2{font-size:14px;}
+.articles_list .article .info{float:left;width:170px;height:25px;font-size:12px;text-align:right;}
+.articles_list .article .box{float:left;clear:both;width:670px;height:120px;border:1px dashed #C6C6C6;background-color:#FAFAFA; background-image:url(/images/box_line.jpg); background-position:center 90px; background-repeat:no-repeat;}
+.articles_list .article .box .short_content{float:left;clear:both;width:660px;height:90px;padding:3px 5px;}
+.articles_list .article .box .short_content {clear:both;float:left;font-size:16px;height:90px;padding:3px 5px;text-indent:26px;}
+.articles_list .article .box .short_other{float:left;clear:both;width:660px;height:30px;padding:0px 5px;}
+.right .widget{ width:100%; float:left;}
+.right .widget .title{width:100%; height:20px; float:left; border:1px #E6E6E6 solid; background:#F8F8F8; text-indent:18px; line-height:22px;}
+.right .widget .body{width:220px; height:20px; float:left; padding:2px 5px;}
+.comment {border:1px dashed #C6C6C6;background-color:#FAFAFA;padding:3px 5px;margin-top:5px;}
+#article {border:1px dashed #C6C6C6;background-color:#FAFAFA;padding:3px 5px;}
+.simple_captcha_image img{width:150px !important}
+.left p {font-size:14px;}
+.left #content ol{margin:auto;padding-left:50px;}
+.left #content ol li{list-style-type: disc;}

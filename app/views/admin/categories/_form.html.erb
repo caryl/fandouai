@@ -1,0 +1,10 @@
+<%= form.error_messages %>
+
+<dl>
+  <dt><%= form.label :title, '标题' %></dt>
+  <dd><%= form.text_field :title %></dd>
+  <dt><%= form.label :param, '链接地址(不填与标题相同)' %></dt>
+  <dd><%= form.text_field :param %></dd>
+  <dt><%= form.label :parent_id %></dt>
+  <dd><%= form.select :parent_id, nested_set_options(@root, @category) {|i| "#{'-' * i.level} #{i.title}"}, :selected => @parent.try(:id)%></dd>
+</dl>

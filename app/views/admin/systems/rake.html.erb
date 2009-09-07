@@ -1,0 +1,12 @@
+<h1>执行脚本有风险，谨慎操作！</h1>
+
+<%form_tag rake_admin_system_path do%>
+  命令:<%=text_field_tag :rake %>确认密码:<%=password_field_tag :pass %>
+  <%=submit_tag '执行' %>
+<%end%>
+
+<%params[:rake] ||= "rake -T"%>
+<h2>执行结果:<%=params[:rake]%></h2>
+<div id="result">
+  <%=simple_format `cd #{Rails.root} && RAILS_ENV=#{Rails.env} #{params[:rake]}` if params[:rake].present?%>
+</div>

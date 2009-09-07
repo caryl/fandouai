@@ -1,0 +1,22 @@
+<h1>注册<%=Conf.site_name%></h1>
+
+<% form_for(@user) do |form| %>
+  <%= form.error_messages %>
+
+  <dl>
+    <dt><%= form.label :user_name, '用户名' %></dt>
+    <dd><%= form.text_field :user_name %></dd>
+    <dt><%= form.label :new_password, '密码' %></dt>
+    <dd><%= form.password_field :new_password %></dd>
+    <dt><%= form.label :new_password, '确认密码' %></dt>
+    <dd><%= form.password_field :new_password_confirmation %></dd>
+    <dt><%= form.label :email, '邮箱' %></dt>
+    <dd><%= form.text_field :email %></dd>
+    <dt>验证码:</dt>
+    <dd><%= show_simple_captcha :label => '(请输入图片中的字母)', :image_style => 'random', :object => 'user' %>  </dd>
+    <dt><%=form.check_box :license%><%= form.label :license, '我同意' %><%=link_to "#{Conf.site_name}用户协议", '/pages/license', :target => '_blank'%></dt>
+    <dd></dd>
+  </dl>
+
+  <p><%= form.submit '提交' %></p>
+<% end %>

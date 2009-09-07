@@ -1,0 +1,12 @@
+<div id="article_related" class="widget">
+  <div class="title">相关文章</div>
+  <ul>
+    <%if @related_articles.present?%>
+      <%@related_articles.each do |article|%>
+        <li><%=link_to h(article.title), article_path(article), :title => h(article.title)%></li>
+      <%end%>
+    <%else%>
+      <li>没有相关文章.</li>
+    <%end%>
+  </ul>
+</div>

@@ -1,0 +1,7 @@
+<h1>修改站点配置</h1>
+<p>请灰常小心</p>
+
+<%form_tag update_config_admin_system_path do%>
+  <%=text_area_tag :config, @config%>
+  <%=submit_tag '修改' %>
+<%end%>

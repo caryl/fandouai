@@ -1,0 +1,3 @@
+<h1>生成站点地图</h1>
+<p>请稍等...</p>
+<%= simple_format `cd #{Rails.root} && RAILS_ENV=#{Rails.env} rake sitemap:refresh` %>

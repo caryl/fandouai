@@ -1,0 +1,24 @@
+<h1>Editing Comment</h1>
+
+<% form_for([:admin, @comment]) do |form| %>
+<%= form.error_messages %>
+
+<dl>
+  <dd>内容：<%=@comment.commentable.try(:title)%></dd>
+  <dd>名字：<%= @comment.user_name %></dd>
+  <dt>ip:<%=@comment.visited_ip %></dt>
+  <dt><%= form.label :content %></dt>
+  <dd><%= form.text_area :content %></dd>
+  <dt><%= form.label :vote_for %></dt>
+  <dd><%= form.text_field :vote_for %></dd>
+  <dt><%= form.label :vote_against %></dt>
+  <dd><%= form.text_field :vote_against %></dd>
+  <dt><%= form.label :state_id %></dt>
+  <dd><%= form.select :state_id, Comment.options_for_state %></dd>
+</dl>
+  <p><%= form.submit '更新' %></p>
+<% end %>
+
+<p>
+  <%= link_to 'Back', admin_comments_path %>
+</p>

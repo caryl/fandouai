@@ -1,0 +1,13 @@
+<div id="article_authors" class="widget">
+  <div class="title"> <%=link_to '作者团队', authors_path %> </div>
+  <ul>
+    <%Author.all(:limit=>'5').each do |author|%>
+      <li>
+        <%=auto_link_to image_tag(author.avatar.url(:small)), user_path(author)%>
+        <%=auto_link_to h(author.nick_name), user_link(author)%>
+        <%=link_to '文章', author_articles_path(author)%>  
+        <%= link_to "[rss]", author_articles_url(author, :rss), :class=>'rss'%>
+      </li>
+    <%end%>
+  </ul>
+</div>

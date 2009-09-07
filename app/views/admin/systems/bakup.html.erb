@@ -1,0 +1,11 @@
+<h1>备份文件</h1>
+<div>
+  <%= link_to '备份数据库', rake_admin_system_path(:rake=>'rake tools:bak_db', :pass => Conf.admin_confirm), :method=>:post %>
+  <%= link_to '备份站点数据', rake_admin_system_path(:rake=>'rake tools:bak_file', :pass => Conf.admin_confirm), :method=>:post %>
+  <%= link_to '清空备份文件', rake_admin_system_path(:rake=>'rake tools:bak_clear', :pass => Conf.admin_confirm), :method=>:post %>
+</div>
+<ul>
+  <% @files.each do |file|%>
+    <li><%=link_to file.split('/').last , download_admin_system_path(:file=>file.split('/').last) %></li>
+  <% end %>
+</ul>

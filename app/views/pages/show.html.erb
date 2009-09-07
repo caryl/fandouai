@@ -1,0 +1,22 @@
+<%@page_title = @content.title%>
+<div id="article_<%=@content.id%> article">
+  <div class="title"><h1><%=h @content.title%></h1></div>
+  <div class="info">
+    作者: <%=auto_link_to h(@content.author.try(:nick_name)), user_link(@content.author)%>
+    分类: <%=link_to h(@content.category.try(:title)), category_articles_path(@content.category) %>
+    评论: <%=link_to @content.comments_count||0, :anchor => 'comments' %>条
+  </div>
+  <div id="content">
+    <%=sanitize @content.content %>
+  </div>
+</div>
+
+<%= render :partial => '/comments/comments', :locals => {:commentable => @content}%>
+<%= render :partial => '/comments/form', :locals => {:commentable => @content} %>
+
+<%content_for :side do%>
+  <%['widgets/article_share', 'widgets/article_categories', 'widgets/article_newest',
+    'widgets/article_comments'].each do |widget| %>
+    <%=render :partial => widget %>
+  <%end%>
+<%end%>

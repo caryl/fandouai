@@ -1,0 +1,29 @@
+<%= form.error_messages %>
+
+<dl>
+  <dt>'用户名'</dt>
+  <dd><%= @user.user_name%></dd>
+  <dt><%= form.label :type, '类型' %></dt>
+  <dd><%= select_tag :type, options_for_select([['普通用户', 'User'],['作者', 'Author']], @user.type) %></dd>
+  <dt><%= form.label :nick_name, '昵称' %></dt>
+  <dd><%= form.text_field :nick_name %></dd>
+  <dt><%= form.label :new_password, '密码' %></dt>
+  <dd><%= form.password_field :new_password %></dd>
+  <dt><%= form.label :new_password, '确认密码' %></dt>
+  <dd><%= form.password_field :new_password_confirmation %></dd>
+  <dt><%= form.label :email, '邮箱' %></dt>
+  <dd><%= form.text_field :email %></dd>
+  <dt><%= form.label :score, '积分' %></dt>
+  <dd><%= form.text_field :score %></dd>
+  <dt><%= form.label :rank, '等级' %></dt>
+  <dd><%= form.text_field :rank %></dd>
+  <dt><%= form.label :weight, '文章投票权重' %></dt>
+  <dd><%= form.text_field :weight %></dd>
+  <dt><%= form.label :state_id, '状态' %></dt>
+  <dd><%= form.select :state_id, User.options_for_state %></dd>
+  <dt><%= form.label :avatar, '头像' %></dt>  
+  <dd>
+    <%= form.file_field :avatar %>
+    当前:<%=image_tag @user.avatar.url(:middle)%>
+  </dd>
+</dl>

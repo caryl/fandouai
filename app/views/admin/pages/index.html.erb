@@ -1,0 +1,28 @@
+<h1> 单页列表 </h1>
+
+<table>
+  <tr>
+    <th>分类</th>
+    <th>标题</th>
+    <th>作者</th>
+    <th>状态</th>
+    <th>置顶</th>
+    <th>评论数</th>
+  </tr>
+
+<% for page in @pages %>
+  <tr>
+    <td><%= h page.category.try(:name) %></td>
+    <td><%= h page.title %></td>
+    <td><%= h page.author.try(:name) %></td>
+    <td><%= h page.state %></td>
+    <td><%= h page.sticky > 0%></td>
+    <td><%= h page.comments_count %></td>
+    <td><%= link_to 'Show', page %></td>
+    <td><%= link_to 'Edit', edit_admin_page_path(page) %></td>
+    <td><%= link_to 'Destroy', [:admin, page], :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+<%=will_paginate @pages%>
+<p><%= link_to '新建单页', new_admin_page_path %></p>

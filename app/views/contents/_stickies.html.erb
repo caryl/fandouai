@@ -1,0 +1,10 @@
+<%stickies = Content.sticky.all%>
+<%if stickies.present?%>
+  <div class="stickies_list highlight">
+    <ul>
+      <%stickies.each do |sticky|%>
+        <li><%= link_to h(sticky.sub_title || sticky.title), sticky %><%= l sticky.created_at, :format=>:short  %> </li>
+      <%end%>
+    </ul>
+  </div>
+<%end%>

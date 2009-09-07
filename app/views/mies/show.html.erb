@@ -1,0 +1,13 @@
+<h1>个人中心</h1>
+<div id='user'>
+  <div id='avatar'><%=image_tag @user.avatar.url(:large)%></div>
+  <div id='info'>
+    <%=@user.nick_name%>
+  </div>
+</div>
+
+<%content_for :side do%>
+  <%['widgets/user_menus', 'widgets/article_categories'].each do |widget| %>
+    <%=render :partial => widget %>
+  <%end%>
+<%end%>

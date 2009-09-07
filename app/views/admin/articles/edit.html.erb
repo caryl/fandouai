@@ -1,0 +1,10 @@
+<h1>Editing Article</h1>
+
+<% form_for([:admin, @article]) do |form| %>
+  <%= render :partial => 'form', :locals => {:form => form} %>
+  <p><%= form.submit 'Update' %></p>
+<% end %>
+
+<p>
+  <%= link_to 'Back', admin_articles_path %>
+</p>

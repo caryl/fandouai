@@ -1,0 +1,13 @@
+<h1>标签云</h1>
+<div id ="all_tags">
+  <%tag_cloud(Article.tag_counts(:at_least=>1), (1 .. 10).to_a) do |tag, css|%>
+    <span class="tag tag_<%=css%>"><%=link_to h(tag), tag_articles_path(tag)%></span>
+  <%end%>
+</div>
+
+<%content_for :side do%>
+  <%['widgets/article_rss', 'widgets/article_orders', 'widgets/article_categories',
+    'widgets/article_tags', 'widgets/article_authors', 'widgets/article_newest'].each do |widget| %>
+    <%=render :partial => widget %>
+  <%end%>
+<%end%>

@@ -1,0 +1,31 @@
+<h1>用户列表</h1>
+
+<table>
+  <tr>
+    <th>类型</th>
+    <th>用户名</th>
+    <th>用户昵称</th>
+    <th>文章数量</th>
+    <th>权重</th>
+    <th>等级</th>
+    <th>状态</th>
+    <th>上次登录</th>
+  </tr>
+
+  <% for user in @users %>
+  <tr>
+    <td><%= user.type%></td>
+    <td><%= h user.user_name%></td>
+    <td><%= link_to h(user.nick_name), user_path(user) %></td>
+    <td><%= h user.contents_count %></td>
+    <td><%= h user.weight %></td>
+    <td><%= h user.rank %></td>
+    <td><%= h user.state %></td>
+    <td><%= l user.last_login_at if user.last_login_at %></td>
+    <td><%= link_to 'Edit', edit_admin_user_path(user) %></td>
+    <td><%= link_to 'Destroy', admin_user_path(user), :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+  <% end %>
+</table>
+<%= will_paginate @users %>
+<p><%= link_to 'New User', new_admin_user_path %></p>

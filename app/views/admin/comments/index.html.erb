@@ -1,0 +1,33 @@
+<h1>评论列表</h1>
+<%form_tag admin_comments_path, :method=>'get' do%>
+  <%=text_field_tag :q%>
+  <%=submit_tag '提交', :name=>nil%>
+<%end%>
+<table>
+  <tr>
+    <th>文章名称</th>
+    <th>评论内容</th>
+    <th>名字</th>
+    <th>ip</th>
+    <th>投票</th>
+    <th>状态</th>
+    <th>时间</th>
+  </tr>
+
+  <% for comment in @comments %>
+  <tr>
+    <td><%= link_to h(comment.commentable.try(:title)), comment.commentable, :target => '_blank' %></td>
+    <td><%= h comment.content %></td>
+    <td><%= h comment.user_name %></td>
+    <td><%= h comment.visited_ip %></td>
+    <td><%= h comment.vote_for %>V<%= h comment.vote_against %></td>
+    <td><%= h comment.state %></td>
+    <td><%= l comment.created_at %></td>
+    <td><%= link_to 'Edit', edit_admin_comment_path(comment) %></td>
+    <td><%= link_to 'Destroy', [:admin, comment], :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+  <% end %>
+</table>
+
+<%= will_paginate @comments %>
+
